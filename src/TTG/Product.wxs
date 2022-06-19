@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+	<?define Trainer Type Generator_TargetDir=$(var.Trainer Type Generator.TargetDir)?>
+	<Product Id="*" Name="Trainer Type Generator" Language="1033" Version="1.0.0" Manufacturer="TheCrafters001" UpgradeCode="314ee8c9-6975-4ed5-8c71-1d13171aacbf">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<!-- Define Link -->
+		<Property Id="ARPHELPLINK" Value="https://thecrafters001.github.io/software/"/>
+		<Property Id="ARPURLINFOABOUT" Value="https://thecrafters001.github.io/software/"/>
+		<!-- Define License -->
+		<WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)\gpl-3.0.rtf" />
+		<!-- Define Downgrade message & EmbedCab -->
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate EmbedCab="yes" />
+		<!-- UI Customization -->
+		<UI>
+			<!-- Define UI -->
+			<UIRef Id="WixUI_Minimal" />
+			<UIRef Id="WixUI_ErrorProgressText" />
+			<Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+			<Publish Dialog="ExitDialog" Control="Finish" Event="DoAction" Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+		</UI>
+		<Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch Trainer Type Generator" />
+		<Property Id="WixShellExecTarget" Value="[#Trainer_Type_Generator.exe]" />
+		<CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
+
+		<Feature Id="ProductFeature" Title="Trainer Type Generator" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+			<ComponentRef Id="ApplicationShortcut" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="TheCrafters001">
+					<Directory Id="INSTALLFOLDER" Name="Trainer Type Generator" />
+				</Directory>
+			</Directory>
+			<Directory Id="ProgramMenuFolder">
+				<Directory Id="ApplicationProgramsFolder" Name="Trainer Type Generator" />
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<!-- Shortcut & Registry -->
+	<Fragment>
+		<DirectoryRef Id="ApplicationProgramsFolder">
+			<Component Id="ApplicationShortcut" Guid="20e7e157-82e4-4656-a3d7-48353bdf8d09">
+				<Shortcut Id="ApplicationStartMenuShortcut" Name="Trainer Type Generator" Description="Trainer Type Generator" Target="[INSTALLFOLDER]Trainer Type Generator.exe" WorkingDirectory="INSTALLFOLDER" />
+				<RemoveFolder Id="RemoveApplicationProgramsFolder" Directory="ApplicationProgramsFolder" On="uninstall" />
+				<RegistryValue Root="HKCU" Key="Software\TheCrafters001\Trainer Type Generator" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+			</Component>
+		</DirectoryRef>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+			<!-- <Component Id="ProductComponent"> -->
+				<!-- TODO: Insert files, registry keys, and other resources here. -->
+			<!-- </Component> -->
+			<Component Id="Trainer_Type_Generator.runtimeconfig.json" Guid="404436f7-4aef-4b5a-a2ab-a43cfaffd77e">
+			  <File Id="Trainer_Type_Generator.runtimeconfig.json" Name="Trainer Type Generator.runtimeconfig.json" Source="$(var.Trainer Type Generator_TargetDir)Trainer Type Generator.runtimeconfig.json" />
+			</Component>
+			<Component Id="Trainer_Type_Generator.dll" Guid="17d4936f-ae17-4075-a764-7bef6c1332e2">
+			  <File Id="Trainer_Type_Generator.dll" Name="Trainer Type Generator.dll" Source="$(var.Trainer Type Generator_TargetDir)Trainer Type Generator.dll" />
+			</Component>
+			<Component Id="Trainer_Type_Generator.deps.json" Guid="840579f3-f8b2-4f67-b178-c484f34d166f">
+				<File Id="Trainer_Type_Generator.deps.json" Name="Trainer Type Generator.deps.json" Source="$(var.Trainer Type Generator_TargetDir)Trainer Type Generator.deps.json" />
+			</Component>
+			<Component Id="Trainer_Type_Generator.exe" Guid="ce80e102-622d-452d-9f34-45e599e73d63">
+				<File Id="Trainer_Type_Generator.exe" Name="Trainer Type Generator.exe" Source="$(var.Trainer Type Generator_TargetDir)Trainer Type Generator.exe" />
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+</Wix>

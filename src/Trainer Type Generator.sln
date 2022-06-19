@@ -3,18 +3,34 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Trainer Type Generator", "Trainer Type Generator\Trainer Type Generator.vbproj", "{19BF3AFB-3048-48B5-8113-B54D93590F1A}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "Trainer Type Generator", "Trainer Type Generator\Trainer Type Generator.vbproj", "{19BF3AFB-3048-48B5-8113-B54D93590F1A}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "TTG", "TTG\TTG.wixproj", "{0913F859-C786-4EAF-921A-28236B344E1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{19BF3AFB-3048-48B5-8113-B54D93590F1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19BF3AFB-3048-48B5-8113-B54D93590F1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19BF3AFB-3048-48B5-8113-B54D93590F1A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{19BF3AFB-3048-48B5-8113-B54D93590F1A}.Debug|x86.Build.0 = Debug|Any CPU
 		{19BF3AFB-3048-48B5-8113-B54D93590F1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19BF3AFB-3048-48B5-8113-B54D93590F1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19BF3AFB-3048-48B5-8113-B54D93590F1A}.Release|x86.ActiveCfg = Release|Any CPU
+		{19BF3AFB-3048-48B5-8113-B54D93590F1A}.Release|x86.Build.0 = Release|Any CPU
+		{0913F859-C786-4EAF-921A-28236B344E1D}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{0913F859-C786-4EAF-921A-28236B344E1D}.Debug|Any CPU.Build.0 = Debug|x86
+		{0913F859-C786-4EAF-921A-28236B344E1D}.Debug|x86.ActiveCfg = Debug|x86
+		{0913F859-C786-4EAF-921A-28236B344E1D}.Debug|x86.Build.0 = Debug|x86
+		{0913F859-C786-4EAF-921A-28236B344E1D}.Release|Any CPU.ActiveCfg = Release|x86
+		{0913F859-C786-4EAF-921A-28236B344E1D}.Release|Any CPU.Build.0 = Release|x86
+		{0913F859-C786-4EAF-921A-28236B344E1D}.Release|x86.ActiveCfg = Release|x86
+		{0913F859-C786-4EAF-921A-28236B344E1D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
